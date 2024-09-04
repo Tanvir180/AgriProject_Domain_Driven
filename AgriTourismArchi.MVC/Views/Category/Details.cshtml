@@ -1,0 +1,63 @@
+﻿@model AgriTourismArchi.DTO.CategoryDTO
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="text-primary text-center mb-4">Category Details</h2>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">ID</dt>
+                        <dd class="col-sm-8">@Model.Id</dd>
+
+                        <dt class="col-sm-4">Place Name</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">Location</dt>
+                        <dd class="col-sm-8">@Model.Location</dd>
+
+                        <dt class="col-sm-4">Cost</dt>
+                        <dd class="col-sm-8">@Model.Cost</dd>
+
+                        <dt class="col-sm-4">Capacity</dt>
+                        <dd class="col-sm-8">@Model.Capacity</dd>
+
+                        <dt class="col-sm-4">Date</dt>
+                        <dd class="col-sm-8">@Model.Date.ToString("yyyy-MM-dd")</dd>
+                    </dl>
+                    <div class="text-center">
+
+                        <a asp-controller="Category" asp-action="Payment" asp-route-id="@Model.Id" class="btn btn-info mx-2">
+                            <i class="bi bi-eye-fill"></i> Payment
+                        </a>
+
+                        <a asp-action="Index" class="btn btn-secondary mt-2">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+        @if (TempData["OutOfCapacity"] != null && (bool)TempData["OutOfCapacity"])
+        {
+            <text>
+                            alert("Out of Capacity! Please choose another date or place.");
+            </text>
+        }
+
+        @if (TempData["BookingSuccess"] != null && (bool)TempData["BookingSuccess"])
+        {
+            <text>
+                            alert("Booking Confirmed!");
+            </text>
+        }
+                });
+    </script>
+}
+

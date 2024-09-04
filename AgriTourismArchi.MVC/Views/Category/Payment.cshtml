@@ -1,0 +1,93 @@
+﻿@model AgriTourismArchi.Aggregator.Models.PaymentViewModel
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<div class="container my-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0"><i class="fas fa-money-check-alt"></i> Confirm Payment</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="ConfirmPayment" method="post">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control bg-light" readonly />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="UserEmail" class="control-label"></label>
+                            <input asp-for="UserEmail" class="form-control bg-light" readonly />
+                            <span asp-validation-for="UserEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="UserPhoneNumber" class="control-label"></label>
+                            <input asp-for="UserPhoneNumber" class="form-control bg-light" readonly />
+                            <span asp-validation-for="UserPhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="UserAddress" class="control-label"></label>
+                            <input asp-for="UserAddress" class="form-control bg-light" readonly />
+                            <span asp-validation-for="UserAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PlaceName" class="control-label"></label>
+                            <input asp-for="PlaceName" class="form-control bg-light" readonly />
+                            <span asp-validation-for="PlaceName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Location" class="control-label"></label>
+                            <input asp-for="Location" class="form-control bg-light" readonly />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Cost" class="control-label"></label>
+                            <input asp-for="Cost" class="form-control bg-light" readonly />
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Date" class="control-label"></label>
+                            <input asp-for="Date" class="form-control bg-light" readonly type="text" value="@Model.Date.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="UserId" />
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-lg btn-success px-5">
+                        <i class="fas fa-check-circle"></i> Confirm Payment
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
