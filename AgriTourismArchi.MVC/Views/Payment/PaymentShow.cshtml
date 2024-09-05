@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Payment Confirmation";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0"><i class="fas fa-check-circle"></i> Payment Confirmed</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="py-4">
+                        <i class="fas fa-check-circle fa-5x text-success"></i>
+                        <h4 class="my-3">Thank you! Your payment has been successfully processed.</h4>
+                        <p class="lead text-muted">
+                            Your booking is confirmed, and all details have been sent to your email address.
+                        </p>
+                    </div>
+
+                    <div class="my-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-lg btn-primary px-5">
+                            <i class="fas fa-home"></i> Go to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 700px;
+    }
+
+    .card {
+        border-radius: 10px;
+        background-color: #f8f9fa;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .text-muted {
+        font-size: 1.1rem;
+    }
+</style>

@@ -1,6 +1,7 @@
 ﻿using AgriTourismArchi.Aggregator.Models;
 using AgriTourismArchi.Repository.Data;
 using AgriTourismArchi.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgriTourismArchi.Repository
 {
@@ -43,9 +44,21 @@ namespace AgriTourismArchi.Repository
 
         public void UpdateCategory(Category category)
         {
-            _dbContext.Categories.Update(category);
+            // Check if the category is already tracked
+            var existingCategory = _dbContext.Categories.Local.FirstOrDefault(c => c.Id == category.Id);
+
+            if (existingCategory != null)
+            {
+                // Remove the existing entity from the context
+                _dbContext.Entry(existingCategory).State = EntityState.Detached;
+            }
+
+            // Attach and update the entity
+            _dbContext.Attach(category);
+            _dbContext.Entry(category).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
+
 
         public void DeleteCategory(int id)
         {

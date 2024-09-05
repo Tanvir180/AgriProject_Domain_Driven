@@ -15,6 +15,16 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 // Register ICategoryHandler and its implementation
 builder.Services.AddScoped<ICategoryHandler, CategoryHandler>();
 
+
+builder.Services.AddScoped<IPaymentHandler, PaymentHandler>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserHandler, UserHandler>();
+
+
+
+
 // Add ApplicationDbContext to the .NET Core framework
 builder.Services.AddDbContext<AgriTourismArchi.Repository.Data.ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

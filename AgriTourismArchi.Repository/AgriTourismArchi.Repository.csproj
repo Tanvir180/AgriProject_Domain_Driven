@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AgriTourismArchi.Aggregator\AgriTourismArchi.Aggregator.csproj" />
+    <ProjectReference Include="..\AgriTourismArchi.DTO\AgriTourismArchi.DTO.csproj" />
   </ItemGroup>
 
 </Project>

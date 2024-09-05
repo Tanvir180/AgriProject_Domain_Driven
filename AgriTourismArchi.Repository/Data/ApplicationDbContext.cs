@@ -12,10 +12,11 @@ namespace AgriTourismArchi.Repository.Data
 
         // Categories table will be created
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         // Payment and User tables
         public DbSet<User> Users { get; set; }
-        public DbSet<Payment> Payments { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
