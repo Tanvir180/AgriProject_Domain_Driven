@@ -13,6 +13,9 @@ namespace AgriTourismArchi.MVC.Controllers
             _categoryHandler = categoryHandler;
         }
 
+
+        // Mainly Used for search
+
         public IActionResult Index(string searchString, DateTime? searchDate)
         {
             var categories = _categoryHandler.GetCategories(searchString, searchDate);
@@ -36,6 +39,7 @@ namespace AgriTourismArchi.MVC.Controllers
             return View(categoryDto);
         }
 
+        //Used for getting the specific category id 
         public IActionResult Edit(int id)
         {
             var category = _categoryHandler.GetCategoryById(id);
@@ -45,6 +49,8 @@ namespace AgriTourismArchi.MVC.Controllers
             }
             return View(category);
         }
+
+        // It is used for Edit 
 
         [HttpPost]
         public IActionResult Edit(CategoryDTO categoryDto)
