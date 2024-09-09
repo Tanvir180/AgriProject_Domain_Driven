@@ -29,7 +29,7 @@ namespace AgriTourismArchi.MVC.Controllers
             }
 
             // Fetch the user with Id = 1 (as per your requirement)
-            var userDto = _userHandler.GetUserById(2);
+            var userDto = _userHandler.GetUserById(1001);
             if (userDto == null)
             {
                 return NotFound(); // User with Id=1 not found

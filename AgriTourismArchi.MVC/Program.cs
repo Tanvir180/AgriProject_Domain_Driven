@@ -15,22 +15,29 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 // Register ICategoryHandler and its implementation
 builder.Services.AddScoped<ICategoryHandler, CategoryHandler>();
 
-
+// Register IPaymentHandler and its implementation
 builder.Services.AddScoped<IPaymentHandler, PaymentHandler>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
+// Register IUserRepository and its implementation
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Register IUserHandler and its implementation
 builder.Services.AddScoped<IUserHandler, UserHandler>();
-
-
-
 
 // Add ApplicationDbContext to the .NET Core framework
 builder.Services.AddDbContext<AgriTourismArchi.Repository.Data.ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add services to the container.
+// Add services to the container
 builder.Services.AddControllersWithViews();
+
+
+
+
+
+
+
 
 // Add required services
 builder.Services.AddAuthorization();
@@ -43,12 +50,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var app = builder.Build(); // Build the app after all services are registered
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

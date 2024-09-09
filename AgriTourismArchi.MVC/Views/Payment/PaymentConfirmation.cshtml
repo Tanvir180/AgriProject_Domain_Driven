@@ -1,0 +1,44 @@
+﻿@model AgriTourismArchi.DTO.PaymentDTO
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Payment Confirmation</title>
+    <style>
+        /* Add custom styles for your PDF */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Confirmation</h1>
+
+    <p><strong>User Name:</strong> @Model.UserName</p>
+    <p><strong>Place Name:</strong> @Model.PlaceName</p>
+    <p><strong>Location:</strong> @Model.Location</p>
+    <p><strong>Date:</strong> @Model.Date</p>
+    <p><strong>Cost:</strong> @Model.Cost</p>
+
+    <footer>
+        <p>Thank you for your payment!</p>
+    </footer>
+</body>
+</html>

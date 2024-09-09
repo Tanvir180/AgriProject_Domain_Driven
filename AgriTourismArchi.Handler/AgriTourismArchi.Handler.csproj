@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AgriTourismArchi.Aggregator\AgriTourismArchi.Aggregator.csproj" />
     <ProjectReference Include="..\AgriTourismArchi.DTO\AgriTourismArchi.DTO.csproj" />
     <ProjectReference Include="..\AgriTourismArchi.Repository\AgriTourismArchi.Repository.csproj" />

@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AgriTourismArchi.Aggregator.Models
+namespace AgriTourismArchi.DTO
 {
-    public class User
+    public class RegistrationDTO
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -15,8 +12,9 @@ namespace AgriTourismArchi.Aggregator.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        public string PasswordHash { get; set; } // Ensure to use secure hashing
-        public string Role { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [Required]
         [Phone]

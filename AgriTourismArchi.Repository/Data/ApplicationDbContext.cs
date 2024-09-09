@@ -1,5 +1,10 @@
 ﻿using AgriTourismArchi.Aggregator.Models; // Correct namespace for Category
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto.Generators;
+//using Microsoft.AspNetCore.Identity; // Import Identity
+
 
 namespace AgriTourismArchi.Repository.Data
 {
@@ -16,7 +21,7 @@ namespace AgriTourismArchi.Repository.Data
 
         // Payment and User tables
         public DbSet<User> Users { get; set; }
-       
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,11 +46,12 @@ namespace AgriTourismArchi.Repository.Data
                 }
             );
 
-            // Seed data for the User table
-            modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Name = "John Doe", Email = "john@example.com", PhoneNumber = "1234567890", Address = "123 Main St" },
-                new User { Id = 2, Name = "Jane Smith", Email = "jane@example.com", PhoneNumber = "0987654321", Address = "456 Elm St" }
-            );
+            //Seed data for the User table
+
+           modelBuilder.Entity<User>().HasData(
+               new User { Id = 1, Name = "John Doe", Email = "john@example.com", PhoneNumber = "1234567890", Address = "123 Main St" },
+               new User { Id = 2, Name = "Jane Smith", Email = "jane@example.com", PhoneNumber = "0987654321", Address = "456 Elm St" }
+           );
 
             // Seed data for the Payment table
             modelBuilder.Entity<Payment>().HasData(
@@ -71,7 +77,20 @@ namespace AgriTourismArchi.Repository.Data
                     Name = "Jane Smith",
                     Number = "67890"
                 }
-            );
+            ); 
+        
+        
+        
+        
         }
-    }
-}
+
+            //Seed data for the User model with hashed passwords
+
+
+        }
+
+        
+
+        }
+    
+
