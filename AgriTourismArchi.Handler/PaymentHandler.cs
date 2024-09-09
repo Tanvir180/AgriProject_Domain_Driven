@@ -51,28 +51,26 @@ namespace AgriTourismArchi.Handler
             _userRepository = userRepository;
         }
 
-        //public void CreatePayment(PaymentDTO paymentDto)
-        //{
-        //    var payment = new Payment
-        //    {
-        //        CategoryId = paymentDto.CategoryId,
-        //        UserId = paymentDto.UserId,
-        //        PlaceName = paymentDto.PlaceName,
-        //        Location = paymentDto.Location,
-        //        Date = paymentDto.Date,
-        //        Name = paymentDto.UserName,
-        //        Number = paymentDto.UserPhoneNumber,
-        //        Cost = paymentDto.Cost
-        //    };
-
-        //    _paymentRepository.AddPayment(payment);
-        //    _paymentRepository.SaveChanges();
-        //}
         public void CreatePayment(PaymentDTO paymentDto)
         {
-            _paymentRepository.AddPayment(paymentDto);
+            // Map the PaymentDTO to a Payment model
+            var payment = new Payment
+            {
+                CategoryId = paymentDto.CategoryId,
+                UserId = paymentDto.UserId,
+                PlaceName = paymentDto.PlaceName,
+                Location = paymentDto.Location,
+                Date = paymentDto.Date,
+                Name = paymentDto.UserName, // Map UserName from DTO
+                Number = paymentDto.UserPhoneNumber, // Map UserPhoneNumber from DTO
+                Cost = paymentDto.Cost
+            };
+
+            // Now pass the Payment model to the repository
+            _paymentRepository.AddPayment(payment);
             _paymentRepository.SaveChanges();
         }
+
 
 
     }

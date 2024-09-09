@@ -1,5 +1,5 @@
 ﻿using AgriTourismArchi.Aggregator.Models;
-using AgriTourismArchi.DTO;
+//using AgriTourismArchi.DTO;
 using AgriTourismArchi.Repository.Data;
 using AgriTourismArchi.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -20,21 +20,21 @@ namespace AgriTourismArchi.Repository
             return _dbContext.Payments.Find(id);
         }
 
-        public void AddPayment(PaymentDTO paymentDto)
+        public void AddPayment(Payment payment)
         {
-            var payment = new Payment
+            var newPayment = new Payment
             {
-                CategoryId = paymentDto.CategoryId,
-                UserId = paymentDto.UserId,
-                PlaceName = paymentDto.PlaceName,
-                Location = paymentDto.Location,
-                Date = paymentDto.Date,
-                Name = paymentDto.UserName, // Map UserName to Payment.Name
-                Number = paymentDto.UserPhoneNumber, // Map UserPhoneNumber to Payment.Number
-                Cost = paymentDto.Cost
+                CategoryId = payment.CategoryId,
+                UserId = payment.UserId,
+                PlaceName = payment.PlaceName,
+                Location = payment.Location,
+                Date = payment.Date,
+                Name = payment.Name, // Map UserName to Payment.Name
+                Number = payment.Number, // Map UserPhoneNumber to Payment.Number
+                Cost = payment.Cost
             };
 
-            _dbContext.Payments.Add(payment);
+            _dbContext.Payments.Add(newPayment);
         }
 
         public void SaveChanges()
@@ -42,6 +42,6 @@ namespace AgriTourismArchi.Repository
             _dbContext.SaveChanges();
         }
 
-      
+       
     }
 }
